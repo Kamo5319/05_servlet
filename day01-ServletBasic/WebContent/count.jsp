@@ -5,8 +5,16 @@
 <head>
 <meta charset="UTF-8">
 <title>JSP 카운트 증가 예제</title>
+<script type="text/javascript">
+	
+	for (var i = 0; i < 5; i++) {
+		document.write("안녕하세요, JavaScript" + i + "<br />");
+	}
+
+</script>
 </head>
 <body>
+	<hr />
 	<!-- HTML 주석 -->
 	<%-- JSP 주석 --%>
 	<%-- JSP : HTML 에 Java 코드가 삽입되는 형태 --%>
