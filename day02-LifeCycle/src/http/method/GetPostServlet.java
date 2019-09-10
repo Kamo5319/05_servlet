@@ -10,42 +10,43 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * HTTP GET / POST ¿äÃ»À» ³ª´©¾î¼­ Ã³¸®ÇÒ ¼ö ÀÖ´Â ¼­ºí¸´ Å¬·¡½º
+ * HTTP GET / POST ìš”ì²­ì„ ë‚˜ëˆ„ì–´ì„œ ì²˜ë¦¬í•  ìˆ˜ ìˆëŠ” ì„œë¸”ë¦¿ í´ë˜ìŠ¤
  */
 @WebServlet("/getPost")
 public class GetPostServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
-	 * HTTP GET ¿äÃ»¸¸ Ã³¸®ÇÏ´Â Å¬·¡½º 
+	 * HTTP GET ìš”ì²­ë§Œ ì²˜ë¦¬í•˜ëŠ” í´ë˜ìŠ¤ 
 	 */
 	protected void doGet(HttpServletRequest request
 			           , HttpServletResponse response) 
 			        		  throws ServletException, IOException {
 
-		// 1. ÀÀ´ä¿¡ ´ëÇÑ ÇÑ±ÛÃ³¸®
+		// 1. ì‘ë‹µì— ëŒ€í•œ í•œê¸€ì²˜ë¦¬
 		response.setContentType("text/html;charset=utf-8");
 		
-		// 2. ÀÀ´ä ³»¿ëÃ³¸® 
+		// 2. ì‘ë‹µ ë‚´ìš©ì²˜ë¦¬ 
 		PrintWriter out = response.getWriter();
-  		out.println("<h2>doGet ¸Ş¼Òµå°¡ ÀÀ´äÇÏ¿´½À´Ï´Ù.</h2>");
+  		out.println("<h2>doGet ë©”ì†Œë“œê°€ ì‘ë‹µí•˜ì˜€ìŠµë‹ˆë‹¤.</h2>");
   		
   		out.close();
 		
 	}
 
 	/**
-	 * HTTP POST ¿äÃ»¸¸ Ã³¸®ÇÏ´Â Å¬·¡½º
+	 * HTTP POST ìš”ì²­ë§Œ ì²˜ë¦¬í•˜ëŠ” í´ë˜ìŠ¤
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// 1. ÀÀ´ä¿¡ ´ëÇÑ ÇÑ±ÛÃ³¸®
+		// 1. ì‘ë‹µì— ëŒ€í•œ í•œê¸€ì²˜ë¦¬
 		response.setContentType("text/html;charset=utf-8");
 		
-		// 2. ÀÀ´ä ³»¿ëÃ³¸® 
+		// 2. ì‘ë‹µ ë‚´ìš©ì²˜ë¦¬ 
 		PrintWriter out = response.getWriter();
-  		out.println("<h2>doPost ¸Ş¼Òµå°¡ ÀÀ´äÇÏ¿´½À´Ï´Ù.</h2>");
+  		out.println("<h2>doPost ë©”ì†Œë“œê°€ ì‘ë‹µí•˜ì˜€ìŠµë‹ˆë‹¤.</h2>");
   		
   		out.close();
 	}
 
 }
+

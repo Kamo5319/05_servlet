@@ -46,6 +46,7 @@
 <% 	
 	} else {
 %>
+
 		request 에 name attribute 가 없습니다.		
 <%	} %>
 <hr />

@@ -11,71 +11,72 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * ¼­ºí¸´ÀÇ »ı¾ÖÁÖ±â(LifeCycle)¸¦ °üÀåÇÏ´Â ¼¼ °³ÀÇ ¸Ş¼Òµå
- * init(), service(), destroy() ¸¦ »ç¿ëÇØº¸´Â 
- * ¼­ºí¸´ Å¬·¡½º
+ * ì„œë¸”ë¦¿ì˜ ìƒì• ì£¼ê¸°(LifeCycle)ë¥¼ ê´€ì¥í•˜ëŠ” ì„¸ ê°œì˜ ë©”ì†Œë“œ
+ * init(), service(), destroy() ë¥¼ ì‚¬ìš©í•´ë³´ëŠ” 
+ * ì„œë¸”ë¦¿ í´ë˜ìŠ¤
  */
 @WebServlet("/lifecycle")
 public class LifeCycleServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	// init(), service() ¸Ş¼ÒµåÀÇ ÀÛµ¿ È®ÀÎÀ» À§ÇØ 
-	// ÀÛµ¿ È½¼ö¸¦ ÀúÀåÇÒ ¸â¹ö º¯¼ö
+	// init(), service() ë©”ì†Œë“œì˜ ì‘ë™ í™•ì¸ì„ ìœ„í•´ 
+	// ì‘ë™ íšŸìˆ˜ë¥¼ ì €ì¥í•  ë©¤ë²„ ë³€ìˆ˜
 	private int count;
 	
 	/**
-	 * ÀÌ ¼­ºí¸´ÀÌ ÃÖÃÊ·Î È£ÃâµÇ¾úÀ» ¶§
-	 * À¥ ÄÁÅ×ÀÌ³Ê(ÅèÄ¹)¿¡ ÀÇÇØ ´Ü ÇÑ¹ø È£ÃâµÇ¸ç
-	 * ¼­ºí¸´ÀÇ ÃÊ±âÈ­¸¦ ´ã´çÇÏ´Â ¸Ş¼Òµå
+	 * ì´ ì„œë¸”ë¦¿ì´ ìµœì´ˆë¡œ í˜¸ì¶œë˜ì—ˆì„ ë•Œ
+	 * ì›¹ ì»¨í…Œì´ë„ˆ(í†°ìº£)ì— ì˜í•´ ë‹¨ í•œë²ˆ í˜¸ì¶œë˜ë©°
+	 * ì„œë¸”ë¦¿ì˜ ì´ˆê¸°í™”ë¥¼ ë‹´ë‹¹í•˜ëŠ” ë©”ì†Œë“œ
 	 */
 	@Override
 	public void init(ServletConfig config) 
 			         throws ServletException {
 		 count = 0;
-		 System.out.println("init() ¸Ş¼Òµå°¡ ½ÇÇàµÇ¾ú½À´Ï´Ù.");
+		 System.out.println("init() ë©”ì†Œë“œê°€ ì‹¤í–‰ë˜ì—ˆìŠµë‹ˆë‹¤.");
 	}
 
 	/**
-	 * ÀÌ ¼­ºí¸´ÀÌ ¼­ºñ½º·ÎºÎÅÍ ÇØÁ¦µÉ ¶§(unload)µÉ ¶§
-	 * (¼­¹ö°¡ Á¾·áµÉ ¶§)
-	 * À¥ ÄÁÅ×ÀÌ³Ê(ÅèÄ¹)¿¡ ÀÇÇØ ´Ü ÇÑ¹ø È£ÃâµÇ¸ç
-	 * ¼­ºí¸´ ¼­ºñ½º¸¦ Á¾·áÇÏ´Â ¸Ş¼Òµå
+	 * ì´ ì„œë¸”ë¦¿ì´ ì„œë¹„ìŠ¤ë¡œë¶€í„° í•´ì œë  ë•Œ(unload)ë  ë•Œ
+	 * (ì„œë²„ê°€ ì¢…ë£Œë  ë•Œ)
+	 * ì›¹ ì»¨í…Œì´ë„ˆ(í†°ìº£)ì— ì˜í•´ ë‹¨ í•œë²ˆ í˜¸ì¶œë˜ë©°
+	 * ì„œë¸”ë¦¿ ì„œë¹„ìŠ¤ë¥¼ ì¢…ë£Œí•˜ëŠ” ë©”ì†Œë“œ
 	 */
 	public void destroy() {
-		System.out.println("destroy() ¸Ş¼Òµå°¡ ½ÇÇàµÇ¾ú½À´Ï´Ù.");
+		System.out.println("destroy() ë©”ì†Œë“œê°€ ì‹¤í–‰ë˜ì—ˆìŠµë‹ˆë‹¤.");
 	}
 
 	/**
-	 * Å¬¶óÀÌ¾ğÆ®ÀÇ ¿äÃ»(request)¸¦ Á÷Á¢ Ã³¸®ÇÏ´Â ¶óÀÌÇÁ »çÀÌÅ¬ ¸Ş¼Òµå
-	 * °¢ ¿äÃ»¿¡ ´ëÇØ¼­ ÀÀ´ä(response)¸¦ Ã³¸®ÇÑ´Ù.
-	 * ÀÌ ¸Ş¼ÒµåÀÇ ÀÔ·Â ÆÄ¶ó¹ÌÅÍÀÎ request, response °´Ã¼´Â
-	 * À¥ ÄÁÅ×ÀÌ³Ê(ÅèÄ¹)ÀÌ Á÷Á¢ »ı¼ºÇÏ¿© ³Ñ°ÜÁÖ´Â ¹æ½ÄÀ¸·Î ÀÛµ¿
+	 * í´ë¼ì´ì–¸íŠ¸ì˜ ìš”ì²­(request)ë¥¼ ì§ì ‘ ì²˜ë¦¬í•˜ëŠ” ë¼ì´í”„ ì‚¬ì´í´ ë©”ì†Œë“œ
+	 * ê° ìš”ì²­ì— ëŒ€í•´ì„œ ì‘ë‹µ(response)ë¥¼ ì²˜ë¦¬í•œë‹¤.
+	 * ì´ ë©”ì†Œë“œì˜ ì…ë ¥ íŒŒë¼ë¯¸í„°ì¸ request, response ê°ì²´ëŠ”
+	 * ì›¹ ì»¨í…Œì´ë„ˆ(í†°ìº£)ì´ ì§ì ‘ ìƒì„±í•˜ì—¬ ë„˜ê²¨ì£¼ëŠ” ë°©ì‹ìœ¼ë¡œ ì‘ë™
 	 */
 	protected void service(HttpServletRequest request
 			             , HttpServletResponse response) 
 			           throws ServletException, IOException {
 		response.setContentType("text/html;charset=utf-8");
 		
-		// È­¸é(ºê¶ó¿ìÀú)¿¡ HTML ÄÚµå¸¦ Ãâ·ÂÇÏ±â À§ÇØ¼­
-		// Ãâ·Â°´Ã¼(out)¸¦ ÀÀ´ä°´Ã¼(response)·Î ºÎÅÍ ¾ò¾î³¿.
+		// í™”ë©´(ë¸Œë¼ìš°ì €)ì— HTML ì½”ë“œë¥¼ ì¶œë ¥í•˜ê¸° ìœ„í•´ì„œ
+		// ì¶œë ¥ê°ì²´(out)ë¥¼ ì‘ë‹µê°ì²´(response)ë¡œ ë¶€í„° ì–»ì–´ëƒ„.
 		PrintWriter out = response.getWriter();
 		
-		// System.out.println() °ú À¯»çÇÏ°Ô Ãâ·ÂÇÏ±â À§ÇØ¼­ 
-		// out À» PrintWriter Å¸ÀÔÀ¸·Î ¾ò¾î³¿
+		// System.out.println() ê³¼ ìœ ì‚¬í•˜ê²Œ ì¶œë ¥í•˜ê¸° ìœ„í•´ì„œ 
+		// out ì„ PrintWriter íƒ€ì…ìœ¼ë¡œ ì–»ì–´ëƒ„
 		out.println("<html>");
-			out.println("<head><title>Hello ¼­ºí¸´</title></head>");
+			out.println("<head><title>Hello ì„œë¸”ë¦¿</title></head>");
 			out.println("<body>");
-				out.println("<h2>¾È³çÇÏ¼¼¿ä, Servlet!" + ++count + "</h2>");
+				out.println("<h2>ì•ˆë…•í•˜ì„¸ìš”, Servlet!" + ++count + "</h2>");
 			out.println("</body>");
 		out.println("</html>");
 		
 		out.close();
-		// ¿©±â±îÁö ºê¶ó¿ìÀú¿¡ Ãâ·Â
+		// ì—¬ê¸°ê¹Œì§€ ë¸Œë¼ìš°ì €ì— ì¶œë ¥
 		
-		// ¿©±â´Â ¼­¹ö ÄÜ¼ÖÃ¢ Ãâ·Â
-		System.out.println("service() ¸Ş¼Òµå°¡ ½ÇÇàµÇ¾ú½À´Ï´Ù.");
-		System.out.println("service ¸Ş¼Òµå ½ÇÇà È½¼ö " + count);
+		// ì—¬ê¸°ëŠ” ì„œë²„ ì½˜ì†”ì°½ ì¶œë ¥
+		System.out.println("service() ë©”ì†Œë“œê°€ ì‹¤í–‰ë˜ì—ˆìŠµë‹ˆë‹¤.");
+		System.out.println("service ë©”ì†Œë“œ ì‹¤í–‰ íšŸìˆ˜ " + count);
 		
 	}
 
 }
+
